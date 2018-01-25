@@ -17,16 +17,16 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
 */
 
 
-#ifndef CoinMarketCapApi_h
-#define CoinMarketCapApi_h
+#ifndef LondonBusApi_h
+#define LondonBusApi_h
 
 #include <Arduino.h>
 #include <ArduinoJson.h>
 #include <Client.h>
 
-#define COINMARKETCAP_HOST "api.coinmarketcap.com"
+#define LONDONBUS_HOST "api.tfl.gov.uk/StopPoint/490015131W1/Arrivals"
 
-struct CMCTickerResponse{
+struct TFLTickerResponse{
   String id;
   String name;
   String symbol;
@@ -51,12 +51,12 @@ struct CMCTickerResponse{
 };
 
 
-class CoinMarketCapApi
+class LondonBusApi
 {
   public:
-    CoinMarketCapApi (Client &client);
-    String SendGetToCoinMarketCap(String command);
-    CMCTickerResponse GetTickerInfo(String coinId, String currency = "");
+    LondonBusApi (Client &client);
+    String SendGetToLondonBus(String command);
+    TFLTickerResponse GetTickerInfo(String StopID);
     int Port = 443;
 
   private:
