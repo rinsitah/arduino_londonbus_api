@@ -27,12 +27,6 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
 #define LONDONBUS_HOST "api.tfl.gov.uk/StopPoint/490015131W1/Arrivals"
 
 struct TFLTickerResponse{
-  
-    responseObject.lineName = root[0]["lineName"].as<String>();
-    responseObject.platformName = root[0]["platformName"].as<String>();
-    responseObject.timeToStation = root[0]["timeToStation"].as<double>();
-    responseObject.towards = root[0]["towards"].as<String>();
-    responseObject.expectedArrival = root[0]["expectedArrival"].as<String>();
     
   String lineName;
   String platformMame;
