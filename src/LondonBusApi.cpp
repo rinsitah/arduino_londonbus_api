@@ -17,7 +17,7 @@ String LondonBusApi::SendGetToLondonBus() {
 		String a="";
 		char c;
 		int ch_count=0;
-		client->println("GET " + command + " HTTP/1.1");
+		//client->println("GET " + command + " HTTP/1.1");
     client->println("Host: " LONDONBUS_HOST);
 		client->println(F("User-Agent: arduino/1.0.0"));
 		client->println();
