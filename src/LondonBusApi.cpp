@@ -1,4 +1,5 @@
 #include "LondonBusApi.h"
+#include "SH1106.h"
 
 LondonBusApi::LondonBusApi(Client &client)	{
   this->client = &client;
