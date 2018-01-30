@@ -4,7 +4,7 @@ LondonBusApi::LondonBusApi(Client &client)	{
   this->client = &client;
 }
 
-String LondonBusApi::SendGetToLondonBus() {
+String LondonBusApi::SendGetToLondonBus(String command) {
   String body="";
   body.reserve(700);
   bool finishedHeaders = false;
@@ -17,7 +17,7 @@ String LondonBusApi::SendGetToLondonBus() {
 		String a="";
 		char c;
 		int ch_count=0;
-		//client->println("GET " + command + " HTTP/1.1");
+		client->println("GET " + command + " HTTP/1.1");
     client->println("Host: " LONDONBUS_HOST);
 		client->println(F("User-Agent: arduino/1.0.0"));
 		client->println();
@@ -58,9 +58,11 @@ String LondonBusApi::SendGetToLondonBus() {
 }
 
 TFLTickerResponse LondonBusApi::GetTickerInfo() {
+  String command="/StopPoint/490015131W1/Arrivals/";
+
 
   // Serial.println(command);
-  String response = SendGetToLondonBus();
+  String response = SendGetToLondonBus(command);
   TFLTickerResponse responseObject = TFLTickerResponse();
   DynamicJsonBuffer jsonBuffer;
 	JsonArray& root = jsonBuffer.parseArray(response);
