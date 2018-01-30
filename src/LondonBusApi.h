@@ -24,7 +24,8 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
 #include <ArduinoJson.h>
 #include <Client.h>
 
-#define LONDONBUS_HOST "api.tfl.gov.uk/StopPoint/490015131W1/Arrivals"
+#define LONDONBUS_HOST "api.tfl.gov.uk"
+///StopPoint/490015131W1/Arrivals
 
 struct TFLTickerResponse{
     
@@ -42,7 +43,7 @@ class LondonBusApi
 {
   public:
     LondonBusApi (Client &client);
-    String SendGetToLondonBus();
+    String SendGetToLondonBus(String command);
     TFLTickerResponse GetTickerInfo();
     int Port = 443;
 
