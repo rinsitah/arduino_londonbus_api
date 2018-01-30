@@ -1,7 +1,4 @@
 #include "LondonBusApi.h"
-#include "SH1106.h"
-
-SH1106 display2(0x3c, D3, D5);
 
 LondonBusApi::LondonBusApi(Client &client)	{
   this->client = &client;
@@ -17,14 +14,6 @@ String LondonBusApi::SendGetToLondonBus(String command) {
 
 	if (client->connect(LONDONBUS_HOST, Port)) {
 		// Serial.println(".... connected to server");
-		String outy= "GET " + command + " HTTP/1.1";
-		display2.clear();
-  		display2.setTextAlignment(TEXT_ALIGN_LEFT);
-		display2.setFont(ArialMT_Plain_10);
-  		display2.drawString(64, 0, F("Connected!"));
-  		display2.drawString(0, 0, (outy));
-  		display2.display();
-		
 		String a="";
 		char c;
 		int ch_count=0;
