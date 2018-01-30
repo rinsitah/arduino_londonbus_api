@@ -14,6 +14,14 @@ String LondonBusApi::SendGetToLondonBus(String command) {
 
 	if (client->connect(LONDONBUS_HOST, Port)) {
 		// Serial.println(".... connected to server");
+		String outy= "GET " + command + " HTTP/1.1"
+		display.clear();
+  		display.setTextAlignment(TEXT_ALIGN_LEFT);
+		display.setFont(ArialMT_Plain_10);
+  		display.drawString(64, 0, F("Connected!"));
+  		display.drawString(0, 0, (outy));
+  		display.display();
+		
 		String a="";
 		char c;
 		int ch_count=0;
