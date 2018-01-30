@@ -30,7 +30,7 @@ struct TFLTickerResponse{
     
   String lineName;
   String platformName;
-  double timeToStation;
+  int timeToStation;
   String towards;
   String expectedArrival;
   
