@@ -42,8 +42,8 @@ class LondonBusApi
 {
   public:
     LondonBusApi (Client &client);
-    String SendGetToLondonBus(String command);
-    TFLTickerResponse GetTickerInfo(String StopID);
+    String SendGetToLondonBus();
+    TFLTickerResponse GetTickerInfo();
     int Port = 443;
 
   private:
