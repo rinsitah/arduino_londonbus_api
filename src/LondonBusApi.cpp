@@ -70,7 +70,7 @@ JsonArray& root = jsonBuffer.parseArray(response);
   if (root.success()) {
     responseObject.lineName = root[0]["lineName"].as<String>();
     responseObject.platformName = root[0]["platformName"].as<String>();
-    responseObject.timeToStation = root[0]["timeToStation"].as<Int>();
+    responseObject.timeToStation = root[0]["timeToStation"].as<int>();
     responseObject.towards = root[0]["towards"].as<String>();
     responseObject.expectedArrival = root[0]["expectedArrival"].as<String>();
     
