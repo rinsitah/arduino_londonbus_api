@@ -6,7 +6,7 @@ LondonBusApi::LondonBusApi(Client &client)	{
 
 String LondonBusApi::SendGetToLondonBus(String command) {
   String body="";
-  body.reserve(700);
+  body.reserve(7000);
   bool finishedHeaders = false;
   bool currentLineIsBlank = true;
 	long now;
@@ -64,12 +64,13 @@ TFLTickerResponse LondonBusApi::GetTickerInfo() {
   // Serial.println(command);
   String response = SendGetToLondonBus(command);
   TFLTickerResponse responseObject = TFLTickerResponse();
-  DynamicJsonBuffer jsonBuffer;
-	JsonArray& root = jsonBuffer.parseArray(response);
+  
+DynamicJsonBuffer jsonBuffer;
+JsonArray& root = jsonBuffer.parseArray(response);
   if (root.success()) {
     responseObject.lineName = root[0]["lineName"].as<String>();
     responseObject.platformName = root[0]["platformName"].as<String>();
-    responseObject.timeToStation = root[0]["timeToStation"].as<double>();
+    responseObject.timeToStation = root[0]["timeToStation"].as<Int>();
     responseObject.towards = root[0]["towards"].as<String>();
     responseObject.expectedArrival = root[0]["expectedArrival"].as<String>();
     
